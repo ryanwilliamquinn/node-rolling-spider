@@ -33,6 +33,7 @@ function launch () {
   d.connect(function () {
     d.setup(function () {
      console.log("Prepare for take off! ", d.name);
+     console.log('Battery ',d.battery);
       d.flatTrim();
       d.startPing();
       d.flatTrim();
@@ -47,8 +48,9 @@ function launch () {
 }
 
 process.stdin.on('keypress', function (ch, key) {
+
   if (ACTIVE && key) {
-    console.log(key.name);
+  	console.log('Battery ',d.battery);
     if (key.name === 'm') {
       d.emergency();
       setTimeout(function () {
